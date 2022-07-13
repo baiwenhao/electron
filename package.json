@@ -6,9 +6,35 @@
   "author": "wenhao",
   "license": "MIT",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder -m dmg"
   },
+  "repository": "github:xxx/xxx",
   "devDependencies": {
-    "electron": "^18.1.0"
+    "electron": "^18.1.0",
+    "electron-builder": "^23.0.3"
+  },
+  "build": {
+    "win": {
+      "icon": "icon.png",
+      "target": ["nsis"]
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "menuCategory": true,
+      "allowElevation": false
+    },
+    "linux": {
+      "icon": "icon.png",
+      "category": "Utility",
+      "target": ["AppImage"]
+    },
+    "mac": {
+      "icon": "icon.png",
+      "type": "development",
+      "category": "public.app-category.developer-tools",
+      "target": ["dmg"]
+    }
   }
 }
